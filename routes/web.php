@@ -1,14 +1,16 @@
 <?php
 
-use App\Http\Controllers\ChatDestroyController;
-use App\Http\Controllers\ChatGptDestroyController;
-use App\Http\Controllers\ChatGptIndexController;
-use App\Http\Controllers\ChatGptStoreController;
-use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\
+{
+    ChatGptIndexController,
+    ChatGptStoreController,
+    ChatGptDestroyController,
+    ProfileController,
+};
+
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
-
 
 
 Route::get('/', function () {

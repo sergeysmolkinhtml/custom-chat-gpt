@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreChatRequest;
 use App\Models\Chat;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Auth;
 use OpenAI\Laravel\Facades\OpenAI;
 
@@ -13,9 +14,10 @@ class ChatGptStoreController extends Controller
     /**
      * Handle the incoming request.
      */
-    public function __invoke(StoreChatRequest $request, string $id = null)
+    public function __invoke(StoreChatRequest $request, string $id = null): RedirectResponse
     {
         $messages = [];
+
         if ($id) {
             $chat = Chat::findOrFail($id);
             $messages = $chat->context;
