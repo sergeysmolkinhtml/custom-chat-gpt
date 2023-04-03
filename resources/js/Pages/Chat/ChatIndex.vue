@@ -8,6 +8,7 @@ import Skeleton from "@/Components/Skeleton.vue";
 const promtInput = ref(null);
 const chatContainer = ref(null);
 const showDeleteButton = ref(false);
+
 const props = defineProps({
     messages: Array,
     chat: null | Object,
