@@ -22,6 +22,7 @@ class ChatGptStoreController extends Controller
             $chat = Chat::findOrFail($id);
             $messages = $chat->context;
         }
+
         $messages[] = ['role' => 'user', 'content' => $request->input('promt')];
         $response = OpenAI::chat()->create([
             'model' => 'gpt-3.5-turbo',

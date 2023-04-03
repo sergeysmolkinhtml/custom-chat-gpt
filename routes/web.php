@@ -27,13 +27,13 @@ Route::get('/dashboard', function () {
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+    Route::get('/profile',       [ProfileController::class, 'edit'])     ->name('profile.edit');
+    Route::patch('/profile',     [ProfileController::class, 'update'])   ->name('profile.update');
+    Route::delete('/profile',    [ProfileController::class, 'destroy'])  ->name('profile.destroy');
 
-    Route::get('/chat/{id?}', ChatGptIndexController::class)->name('chat.show');
-    Route::post('/chat/{id?}', ChatGptStoreController::class)->name('chat.store');
-    Route::delete('/chat/{chat}', ChatGptDestroyController::class)->name('chat.destroy');
+    Route::get('/chat/{id?}',    ChatGptIndexController::class)  ->name('chat.show');
+    Route::post('/chat/{id?}',   ChatGptStoreController::class)  ->name('chat.store');
+    Route::delete('/chat/{chat}',ChatGptDestroyController::class)->name('chat.destroy');
 });
 
 require __DIR__ . '/auth.php';
