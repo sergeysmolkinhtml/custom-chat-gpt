@@ -1,12 +1,11 @@
 <?php
 
-use App\Http\Controllers\
-{
-    ChatGptIndexController,
+use App\Http\Controllers\{ChatGptIndexController,
     ChatGptStoreController,
     ChatGptDestroyController,
-    ProfileController,
-};
+    GptImageGenerationIndex,
+    GptImageGenerationStore,
+    ProfileController};
 
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
@@ -34,6 +33,11 @@ Route::middleware('auth')->group(function () {
     Route::get('/chat/{id?}',    ChatGptIndexController::class)  ->name('chat.show');
     Route::post('/chat/{id?}',   ChatGptStoreController::class)  ->name('chat.store');
     Route::delete('/chat/{chat}',ChatGptDestroyController::class)->name('chat.destroy');
+
+    Route::get('imgpt/{id?}',  GptImageGenerationIndex::class)->name('img.show');
+    Route::post('imgpt/{id?}', GptImageGenerationStore::class)->name('img.store');
+    Route::delete('imgpt/{id?}',  GptImageGenerationIndex::class)->name('img.destroy');
+
 });
 
 require __DIR__ . '/auth.php';

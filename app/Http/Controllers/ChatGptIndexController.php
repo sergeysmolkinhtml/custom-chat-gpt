@@ -14,9 +14,8 @@ class ChatGptIndexController extends Controller
      */
     public function __invoke(string $id = null): Response
     {
-        return Inertia::render('Chat/ChatIndex', [
-            'chat' => fn () => $id ? Chat::findOrFail($id) : null,
-            'messages' => Chat::latest()->where('user_id', Auth::id())->get()
+        return Inertia::render('ImageGPT/ImageGPTIndex', [
+
         ]);
     }
 }
