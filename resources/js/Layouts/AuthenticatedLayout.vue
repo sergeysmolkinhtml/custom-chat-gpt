@@ -35,6 +35,9 @@ const showingNavigationDropdown = ref(false);
                                 <NavLink :href="route('chat.show')" :active="route().current('chat.show')">
                                     ChatGPT
                                 </NavLink>
+                                <NavLink :href="route('img.show')" :active="route().current('chat.show')">
+                                    ImageGPT
+                                </NavLink>
                             </div>
                         </div>
 
