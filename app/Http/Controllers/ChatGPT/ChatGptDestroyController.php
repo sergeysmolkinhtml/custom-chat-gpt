@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\ChatGPT;
 
+use App\Http\Controllers\Controller;
 use App\Models\Chat;
 use Illuminate\Http\RedirectResponse;
 

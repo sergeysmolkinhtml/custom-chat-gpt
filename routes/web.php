@@ -1,12 +1,12 @@
 <?php
 
-use App\Http\Controllers\{ChatGptIndexController,
-    ChatGptStoreController,
-    ChatGptDestroyController,
-    GptImageGenerationIndex,
-    GptImageGenerationStore,
+use App\Http\Controllers\{ChatGPT\ChatGptDestroyController,
+    ChatGPT\ChatGptIndexController,
+    ChatGPT\ChatGptStoreController,
+    ImGPT\GptImageGenerationDelete,
+    ImGPT\GptImageGenerationIndex,
+    ImGPT\GptImageGenerationStore,
     ProfileController};
-
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -34,9 +34,9 @@ Route::middleware('auth')->group(function () {
     Route::post('/chat/{id?}',   ChatGptStoreController::class)  ->name('chat.store');
     Route::delete('/chat/{chat}',ChatGptDestroyController::class)->name('chat.destroy');
 
-    Route::get('imgpt/{id?}',  GptImageGenerationIndex::class)->name('img.show');
-    Route::post('imgpt/{id?}', GptImageGenerationStore::class)->name('img.store');
-    Route::delete('imgpt/{id?}',  GptImageGenerationIndex::class)->name('img.destroy');
+    Route::get('/imgpt/{id?}',    GptImageGenerationIndex::class)->name('img.show');
+    Route::post('/imgpt/{id?}',   GptImageGenerationStore::class)->name('img.store');
+    Route::delete('/imgpt/{chat}',GptImageGenerationDelete::class)->name('img.delete');
 
 });
 

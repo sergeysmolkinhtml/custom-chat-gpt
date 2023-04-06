@@ -1,14 +1,14 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\ChatGPT;
 
+use App\Http\Controllers\Controller;
 use App\Models\Chat;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Inertia\Inertia;
 use Inertia\Response;
 
-class GptImageGenerationIndex extends Controller
+class ChatGptIndexController extends Controller
 {
     public function __invoke(string $id = null): Response
     {
