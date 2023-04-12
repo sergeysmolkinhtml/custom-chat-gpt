@@ -9,10 +9,14 @@ const promtInput = ref(null);
 const chatContainer = ref(null);
 const showDeleteButton = ref(false);
 
+const myelem = document.getElementsByClassName('myclass');
+
+
 const props = defineProps({
     messages: Array,
     chat: null | Object,
 });
+
 const form = useForm({
     promt: "",
 });
@@ -39,13 +43,13 @@ onMounted(() => {
 const title = computed(() => props.chat?.context[0].content ?? "New Chat");
 </script>
 <template>
-    <Head :title="title"/>
+    <Head :title="ChatGPT"/>
     <ChatLayout>
         <template #aside>
             <ul class="p-2">
                 <li
                     v-if="chat"
-                    class="px-4 py-2 my-2 flex justify-between font-semibold text-green-400 bg-slate-900 hover:bg-slate-700 rounded-lg duration-200"
+                    class="px-4py-2 my-2 flex justify-between font-semibold text-green-400 bg-slate-900 hover:bg-slate-700 rounded-lg duration-200"
                 >
                     <Link href="/chat" class="w-full">New Chat</Link>
                     <svg
@@ -147,13 +151,13 @@ const title = computed(() => props.chat?.context[0].content ?? "New Chat");
             </ul>
         </template>
         <div class="w-full flex text-white">
+            <div class="myclass">hello</div>
             <template v-if="chat">
                 <div class="w-full flex h-screen bg-slate-900">
                     <div class="w-full overflow-auto pb-36" ref="chatContainer">
                         <template
                             v-for="(content, index) in chat?.context"
-                            :key="index"
-                        >
+                            :key="index">
                             <ChatContent :content="content"/>
                         </template>
                         <Skeleton v-show="form.processing"/>
